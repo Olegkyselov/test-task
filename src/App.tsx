@@ -1,26 +1,30 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+
+const tiles = [
+  {
+    name: "Campus Scour",
+    isArticle: false,
+    thumbnail: "/images/stadium.jpg",
+  },
+  {
+    name: "All About Madison",
+    isArticle: true,
+    thumbnail: "/images/city-night.jpg",
+  },
+  {
+    name: "Madison's History",
+    isArticle: true,
+    thumbnail: "/images/city-sun.jpg",
+  },
+  {
+    name: "Downtown Scour",
+    isArticle: false,
+    thumbnail: "/images/city-street.jpg",
+  },
+];
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+  return null;
 }
 
 export default App;
