@@ -15,4 +15,5 @@ Please complete the following:
     - The tile should display the text passed in by `name` (not 'Scour' or 'Article' as shown in the mock-up)
     - The border of the tile should be orange or blue depending on the type of tile (see mock-up)
     - You can ignore the icon in the top right of every tile in the mock-up
+    - The tile should take up the full width of the screen if it is a scour, and half the width if it is an article
 - In `App.tsx` render a `Tile` for every item in the `data` array, passing in the appropriate props.
