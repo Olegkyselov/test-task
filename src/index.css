@@ -1,6 +1,25 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
 body {
   width: 100vw;
   height: 100vh;
   background-image: linear-gradient(#00cacf, #00929a);
   margin: 0px;
+
+  padding: 64px;
+  box-sizing: border-box;
+}
+
+.tiles {
+  --gap: 16px;
+
+  display: grid;
+  width: calc(100% - var(--gap));
+  grid-template-columns: 50% 50%;
+
+  column-gap: var(--gap);
+  row-gap: var(--gap);
 }

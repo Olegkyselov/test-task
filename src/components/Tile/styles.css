@@ -1,0 +1,133 @@
+.tile {
+  --border-top-right-radius: 64px;
+
+  position: relative;
+  z-index: 1;
+
+  height: 200px;
+  list-style: none;
+
+  cursor: pointer;
+  border-radius: 16px;
+}
+
+/* tile shadow */
+.tile::before {
+  --shadow-width: 4px;
+
+  position: absolute;
+  z-index: -1;
+  content: " ";
+  width: calc(100% + var(--shadow-width) * 2);
+  height: 100%;
+  top: 0;
+  left: calc(0px - var(--shadow-width));
+  transform: translateY(var(--shadow-width));
+
+  border-radius: 20px;
+  border-top-right-radius: var(--border-top-right-radius);
+
+  background-color: rgb(0, 0, 0, 0.2);
+}
+
+/* tile top left corner */
+.tile::after {
+  content: "";
+  position: absolute;
+  width: 64px;
+  height: 64px;
+  top: 0;
+  right: 0;
+
+  display: flex;
+  font-size: 32px;
+  align-items: center;
+  justify-content: center;
+
+  background-color: var(--accent-color);
+  border-bottom-left-radius: 32px;
+  border-top-right-radius: var(--border-top-right-radius);
+  box-shadow: -5px 5px 4px -1px rgb(0, 0, 0, 0.3);
+  background: radial-gradient(
+    circle,
+    var(--accent-gradient-start-color) 0%,
+    var(--accent-color) 58%,
+    var(--accent-color) 67%,
+    rgba(255, 255, 255, 1) 77%
+  );
+  background-position-x: -64px;
+  background-position-y: 0;
+  background-size: 128px 128px;
+}
+
+.tile__content {
+  display: flex;
+  height: 100%;
+  overflow: hidden;
+  z-index: 1;
+
+  background-position: center;
+  background-size: cover;
+
+  border-radius: 16px;
+  border-top-right-radius: var(--border-top-right-radius);
+}
+
+.tile[role="scour"] {
+  grid-column: span 2;
+  --accent-color: #ffa500;
+  --accent-gradient-start-color: #a77312;
+}
+
+.tile[role="article"] {
+  grid-column: span 1;
+  --accent-color: rgb(0, 192, 218);
+  --accent-gradient-start-color: rgb(9, 148, 153);
+}
+.tile[role="article"]:last-of-type {
+  grid-column: span 2;
+}
+
+.tile__title {
+  align-self: flex-end;
+  flex-grow: 1;
+  padding: 10px 16px 16px;
+
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 20px;
+  color: #ffffff;
+  background-color: rgb(0, 0, 0, 0.4);
+}
+
+/* tile white border */
+.tile__content::after {
+  --border-thickness: 6px;
+
+  content: " ";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: calc(100% - var(--border-thickness) * 2);
+  height: calc(100% - var(--border-thickness) * 2.5);
+
+  border: var(--border-thickness) solid #ffffff;
+  border-radius: 16px;
+  border-top-right-radius: var(--border-top-right-radius);
+}
+
+/* tile colored border */
+.tile__content::before {
+  --border-thickness: 6px;
+
+  content: " ";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: calc(100% - var(--border-thickness) * 2);
+  height: calc(100% - var(--border-thickness) * 2);
+
+  border: var(--border-thickness) solid var(--accent-color);
+  border-radius: 16px;
+  border-top-right-radius: var(--border-top-right-radius);
+  box-shadow: 0px 2px 1px 0px rgba(0, 0, 0, 0.2);
+}

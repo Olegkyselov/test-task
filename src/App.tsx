@@ -1,4 +1,4 @@
-import React from "react";
+import { Tile } from "./components/Tile";
 
 const tiles = [
   {
@@ -24,7 +24,13 @@ const tiles = [
 ];
 
 function App() {
-  return null;
+  return (
+    <ul className="tiles">
+      {tiles.map((tile) => (
+        <Tile {...tile} key={tile.name} />
+      ))}
+    </ul>
+  );
 }
 
 export default App;
